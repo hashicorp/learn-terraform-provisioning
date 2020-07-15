@@ -25,4 +25,6 @@ sudo su terraform
 
 export PATH=$PATH:/usr/local/go/bin
 
-sudo go get github.com/tr0njavolta/gowebapp-demo
+cd /home/terraform/
+
+sudo go get github.com/hashicorp/learn-go-webapp-demo
