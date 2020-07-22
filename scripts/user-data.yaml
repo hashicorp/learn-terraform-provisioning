@@ -1,6 +1,6 @@
 #cloud-config
 # Add groups to the system
-# The following example adds the ubuntu group with members 'root' and 'sys'
+# Adds the ubuntu group with members 'root' and 'sys'
 # and the empty group hashicorp.
 groups:
   - ubuntu: [root,sys]
@@ -20,9 +20,11 @@ users:
     ssh_authorized_keys:
       - ssh-rsa AAAAHHHHHH
 
+# Downloads the golang package
 packages:
   - golang-go
 
+# Setsthe GOPATH & downloads the demo payload
 runcmd:
   - sudo su terraform
   - sudo mkdir ~/go
