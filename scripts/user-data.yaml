@@ -1,0 +1,30 @@
+#cloud-config
+# Add groups to the system
+# The following example adds the ubuntu group with members 'root' and 'sys'
+# and the empty group hashicorp.
+groups:
+  - ubuntu: [root,sys]
+  - hashicorp
+
+# Add users to the system. Users are added after groups are added.
+users:
+  - default
+  - name: terraform
+    gecos: terraform
+    shell: /bin/bash
+    primary_group: hashicorp
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    ssh_import_id:
+    lock_passwd: false
+    ssh_authorized_keys:
+      - ssh-rsa AAAAHHHHHH
+
+packages:
+  - golang-go
+
+runcmd:
+  - sudo su terraform
+  - sudo mkdir ~/go
+  - export GOPATH=$HOME/go
+  - sudo go get github.com/hashicorp/learn-go-webapp-demo
