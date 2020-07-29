@@ -29,8 +29,8 @@
   "provisioners": [
     {
         "type": "file",
-        "source": "./newkey.pub",
-        "destination": "/tmp/newkey.pub"
+        "source": "./tf-packer.pub",
+        "destination": "/tmp/tf-packer.pub"
       },
     {
         "type": "shell",
