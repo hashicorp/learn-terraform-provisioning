@@ -1,12 +1,10 @@
 #!/bin/bash
-set -e
-# Updating and Upgrading dependencies
-sudo apt-get update -y -qq && sudo apt-get upgrade -y -qq
+set -x
 
 # Install necessary dependencies
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
 sudo apt-get -y -qq install curl wget git vim apt-transport-https ca-certificates
 sudo add-apt-repository ppa:longsleep/golang-backports -y
-sudo apt update -y -qq
 sudo apt -y -qq install golang-go
 
 # Setup sudo to allow no-password sudo for "hashicorp" group and adding "terraform" user
@@ -26,10 +24,14 @@ sudo usermod --shell /bin/bash terraform
 
 # Create GOPATH for Terraform user & download the webapp from github
 
-
-sudo -i -u terraform bash << EOF
+sudo -H -i -u terraform -- env bash << EOF
 whoami
+echo ~terraform
+
 cd /home/terraform
-export PATH=$PATH:/usr/local/go/bin
-sudo go get github.com/hashicorp/learn-go-webapp-demo
+
+export GOROOT=/usr/lib/go
+export GOPATH=/home/terraform/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+go get -d github.com/hashicorp/learn-go-webapp-demo
 EOF
