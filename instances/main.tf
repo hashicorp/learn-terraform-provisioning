@@ -82,7 +82,9 @@ resource "aws_security_group" "sg_22_80" {
   }
 }
 
-
+data "template_file" "user_data" {
+  template = file("../scripts/add-ssh-web-app.yaml")
+}
 
 resource "aws_instance" "web" {
   ami                         = data.aws_ami.ubuntu.id
@@ -90,7 +92,7 @@ resource "aws_instance" "web" {
   subnet_id                   = aws_subnet.subnet_public.id
   vpc_security_group_ids      = [aws_security_group.sg_22_80.id]
   associate_public_ip_address = true
-  user_data                   = file("../scripts/ADD-YAML-FILE-HERE")
+  user_data                   = data.template_file.user_data.rendered
 
   tags = {
     Name = "Learn-CloudInit"
