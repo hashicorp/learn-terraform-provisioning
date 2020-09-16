@@ -27,6 +27,7 @@ packages:
 # Setsthe GOPATH & downloads the demo payload
 runcmd:
   - sudo su terraform
-  - sudo mkdir ~/go
-  - export GOPATH=$HOME/go
-  - sudo go get github.com/hashicorp/learn-go-webapp-demo
+  - sudo mkdir /home/terraform/go
+  - sudo chown terraform:hashicorp /home/terraform/go
+  - export GOPATH=/home/terraform/go
+  - go get github.com/hashicorp/learn-go-webapp-demo
