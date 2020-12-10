@@ -24,7 +24,7 @@ users:
 packages:
   - golang-go
 
-# Setsthe GOPATH & downloads the demo payload
+# Sets the GOPATH & downloads the demo payload
 runcmd:
   - sudo su terraform
   - sudo mkdir /home/terraform/go
