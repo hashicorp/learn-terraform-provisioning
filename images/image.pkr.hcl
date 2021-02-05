@@ -7,7 +7,7 @@ variable "region" {
 # build blocks. A build block runs provisioners and post-processors on a
 # source.
 source "amazon-ebs" "example" {
-  ami_name      = "learn-terraform-packer"
+"learn-terraform-packer-${formatdate("MMDDYYYY-HHmmss", timestamp())}"
   instance_type = "t2.micro"
   region        = var.region
   source_ami_filter {
