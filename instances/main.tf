@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.26.0"
+    }
+  }
+  required_version = "~> 0.14.5"
+}
 
 provider "aws" {
   region = var.region
@@ -14,8 +23,8 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_subnet" "subnet_public" {
-  vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.cidr_subnet
+  vpc_id     = aws_vpc.vpc.id
+  cidr_block = var.cidr_subnet
 }
 
 resource "aws_route_table" "rtb_public" {
@@ -51,7 +60,7 @@ resource "aws_security_group" "sg_22_80" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-    ingress {
+  ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -78,6 +87,6 @@ resource "aws_instance" "web" {
   }
 }
 
-output "id" {
+output "public_ip" {
   value = aws_instance.web.public_ip
 }
