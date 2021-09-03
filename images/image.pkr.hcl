@@ -10,7 +10,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 # build blocks. A build block runs provisioners and post-processors on a
 # source.
 source "amazon-ebs" "example" {
-  ami_name      = "learn-terraform-packer-${local.timestamp}"
+  ami_name      = "terraform-packer-${local.timestamp}"
   instance_type = "t2.micro"
   region        = var.region
   source_ami_filter {
