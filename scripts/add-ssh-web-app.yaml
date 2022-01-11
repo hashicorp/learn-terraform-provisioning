@@ -17,7 +17,7 @@ users:
     groups: users, admin
     lock_passwd: false
     ssh_authorized_keys:
-      - ssh-rsa AAAAHHHHHH
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQ38qucuu715ILMhhtjkOpuz3yE5VR5kI+enSdXMvzSZQUl6SXah+e0FPaZ5ZKRpBUJgxHwEVz8IAqIPorXNwEH8tEaSjnb7ZVv8zLKZhnyLpWR+EgRQx1/uJkByerPW36U6+GNEIOo5zXAIvMSjCaZKMN15WDZ4W79wlQoyMvxgSR6oWpzYNiwQ8CCICJgVesdTOC1SLgs1U7JiN/DWiUKD4WfSjaJ8WJhEMqgnAN+M20uYqC/ooB3STH7i4mmFQeNCq20zLaP8POEu72/rMIh8Dc8AJDXVtKNtS7Fh5637gfUtoaAPUIaV3Vij5NqYsaWM3tgnBSKS99RK2yzV4cqeDax8G8t8JgoQopx2/D0ff89r8L0WS4zERGrf+rhGdPNNMH39TJZLM4lIZJUwCdhVxfm60qyaJRjhWsQersC90MMB6mzOU4YurzopOCbrd2ovxQOwsZbJu72JfOgWBJv+DW0bnH6D9L0c61UwsOvVR10J3wNy2LvHDL88iM4ws= rjkeener@gmail.com
 
 # Downloads the golang package
 packages:
