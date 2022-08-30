@@ -1,4 +1,4 @@
 # Learn Terraform Provisioning
-Companion code repository for learning to provision Terraform instances with Packer
 
-Follow along on the [HashiCorp Learn platform](https://learn.hashicorp.com/tutorials/terraform/packer?in=terraform/provision)
+This repo is a companion repo to the [Learn Terraform Provisioning](https://developer.hashicorp.com/terraform/tutorials/provision/packer) tutorial.
+It contains Terraform configuration you can use to learn how to provision Terraform instances with Packer.
