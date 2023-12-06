@@ -38,5 +38,5 @@ cd /home/terraform
 export GOROOT=/usr/lib/go
 export GOPATH=/home/terraform/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-go get -d github.com/hashicorp/learn-go-webapp-demo
+git clone https://github.com/hashicorp/learn-go-webapp-demo.git
 EOF

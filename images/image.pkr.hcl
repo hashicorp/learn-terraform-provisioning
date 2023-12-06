@@ -1,6 +1,15 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
+packer {
+  required_plugins {
+    vsphere = {
+      version = ">= 1.2.3"
+      source  = "github.com/hashicorp/vsphere"
+    }
+  }
+}
+
 variable "region" {
   type    = string
   default = "us-east-1"
@@ -18,7 +27,7 @@ source "amazon-ebs" "example" {
   region        = var.region
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
